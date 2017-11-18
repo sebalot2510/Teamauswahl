@@ -17,6 +17,8 @@ public class Verteilung {
     public Verteilung() {
         
         teamliste = new ArrayList<Team>();
+        gruppeA = new Gruppe("Gruppe A");
+        gruppeB = new Gruppe("Gruppe B");
     }
     
     public void addTeam (Team t) {
@@ -29,8 +31,43 @@ public class Verteilung {
     
     public void gruppenfestlegen() {
         
+        int z = 0;
         mischen();
-        teamliste.get(0).setGruppe();
+        while (z < 4 ) {
+            
+            //System.out.println(teamliste.get(0));
+            Team t = teamliste.get(0);
+            gruppeA.addTeam(t);
+            t.setGruppe(gruppeA);
+            teamliste.remove(0);
+            z++;
+            
+        }
+        z = 0;
+                
+        while ( z < 4 ) {
+            
+            Team t = teamliste.get(0);
+            gruppeB.addTeam(t);
+            t.setGruppe(gruppeB);
+            teamliste.remove(0);
+            z++;
+        }
+    }
+    
+    public Gruppe getGruppeA () {
+        return gruppeA;
+    }
+    
+    public Gruppe getGruppeB () {
+        return gruppeB;
+    }
+    
+    public Gruppe getGruppec () {
+        return gruppeC;
+    }
+    public Gruppe getGruppeD () {
+        return gruppeD;
     }
     
     public String toString() {
@@ -39,7 +76,9 @@ public class Verteilung {
         while (i.hasNext() ) {
             System.out.println(i.next());
         }
-        return "";   
+        //System.out.println(gruppeA);
+        //System.out.println(gruppeB);
+        return "";
     }
     
 }

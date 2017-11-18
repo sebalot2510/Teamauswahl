@@ -24,7 +24,9 @@ public class Team
         if ( gruppe != null ) {
             g = gruppe.getName();
         }
-        return s + name;
+        System.out.print(s + name +  '\n' + "Gruppe: " + g);
+        return "";
+        //return s + name;
     }
     
     public void setGruppe(Gruppe g) {

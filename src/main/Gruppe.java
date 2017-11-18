@@ -13,7 +13,7 @@ public class Gruppe
     
     public Gruppe (String s) {
         
-        teamliste = new LinkedList<Team>();
+        teamliste = new ArrayList<Team>();
         name = s;
     }
     
@@ -22,6 +22,9 @@ public class Gruppe
     }
     
     public String toString() {
+        
+        System.out.println(name);
+        System.out.println("");
         Iterator<Team> i = teamliste.iterator();
         while (i.hasNext() ) {
             System.out.println(i.next());
