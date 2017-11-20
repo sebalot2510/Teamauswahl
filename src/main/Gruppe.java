@@ -23,13 +23,13 @@ public class Gruppe
     
     public String toString() {
         
-        System.out.println(name);
-        System.out.println("");
+        String s = name + '\n';
+        
         Iterator<Team> i = teamliste.iterator();
         while (i.hasNext() ) {
-            System.out.println(i.next());
+            s = s + i.next();    
         }
-        return ""; 
+        return s;
     }
     
     public String getName() {

@@ -40,11 +40,10 @@ public class Start {
         Team team10 = new Team("DER GLUBB");
         t.addTeam(team10);
         
-        System.out.println(t);
+        
         t.gruppenfestlegen();
         System.out.println(t.getGruppeA());
         System.out.println(t.getGruppeB());
-        System.out.println("T nach Gruppenfestlegung: "+t);
         
         
     }

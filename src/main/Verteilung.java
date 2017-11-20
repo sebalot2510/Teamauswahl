@@ -31,18 +31,22 @@ public class Verteilung {
     
     public void gruppenfestlegen() {
         
+        String spielerM = "Micha";
+        String spielerS = "Sebastian";
         int z = 0;
+        
         mischen();
+        
         while (z < 4 ) {
             
-            //System.out.println(teamliste.get(0));
             Team t = teamliste.get(0);
             gruppeA.addTeam(t);
             t.setGruppe(gruppeA);
+            t.setSpieler(z % 2 == 0 ? spielerS : spielerM);
             teamliste.remove(0);
             z++;
-            
         }
+        
         z = 0;
                 
         while ( z < 4 ) {
@@ -53,6 +57,8 @@ public class Verteilung {
             teamliste.remove(0);
             z++;
         }
+        
+        
     }
     
     public Gruppe getGruppeA () {
@@ -72,13 +78,13 @@ public class Verteilung {
     
     public String toString() {
      
+        String s = "";
+        
         Iterator<Team> i = teamliste.iterator();
         while (i.hasNext() ) {
-            System.out.println(i.next());
+            s = s + i.next();
         }
-        //System.out.println(gruppeA);
-        //System.out.println(gruppeB);
-        return "";
+        return s;
     }
     
 }
