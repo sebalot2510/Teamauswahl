@@ -7,12 +7,17 @@ import main.*;
  * @author sebas
  */
 public class Main extends javax.swing.JFrame {
+    
+    Verteilung t;
+    String JPanelText = "";
 
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+        
+        t = new Verteilung();
     }
 
     /**
@@ -27,6 +32,9 @@ public class Main extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        jPanel1 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gruppenverteilung - Fifa-Turnier");
@@ -45,13 +53,33 @@ public class Main extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+
+        jTextField1.setToolTipText("Mannschaft eintragen");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1);
+
+        jButton1.setText("Hinzufügen");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        Verteilung t = new Verteilung();
+        //Verteilung t = new Verteilung();
         
-        Team team1 = new Team("FC Bayern München");
+        /*Team team1 = new Team("FC Bayern München");
         t.addTeam(team1);
                 
         Team team2 = new Team("FC Barcelona");
@@ -79,7 +107,7 @@ public class Main extends javax.swing.JFrame {
         t.addTeam(team9);
         
         Team team10 = new Team("DER GLUBB");
-        t.addTeam(team10);
+        t.addTeam(team10);*/
         
         
         t.gruppenfestlegen();
@@ -89,6 +117,22 @@ public class Main extends javax.swing.JFrame {
         jTextPane1.setText(s);
         repaint();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String mannschaft = this.jTextField1.getText();
+        t.addTeam(new Team (mannschaft));
+        JPanelText = JPanelText + "\n" + mannschaft;
+        jTextPane1.setText(JPanelText);
+        jTextField1.setText(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        String mannschaft = this.jTextField1.getText();
+        t.addTeam(new Team (mannschaft));
+        JPanelText = JPanelText + "\n" + mannschaft;
+        jTextPane1.setText(JPanelText);
+        jTextField1.setText(null);
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,7 +170,10 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
