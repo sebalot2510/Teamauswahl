@@ -31,6 +31,8 @@ public class Verteilung {
     
     public void gruppenfestlegen() {
         
+        gruppeA.deleteAll();
+        gruppeB.deleteAll();
         String spielerM = "Micha";
         String spielerS = "Sebastian";
         int z = 0;
@@ -39,22 +41,23 @@ public class Verteilung {
         
         while (z < 4 ) {
             
-            Team t = teamliste.get(0);
+            Team t = teamliste.get(z);
             gruppeA.addTeam(t);
             t.setGruppe(gruppeA);
             t.setSpieler(z % 2 == 0 ? spielerS : spielerM);
-            teamliste.remove(0);
+            //teamliste.remove(0);
             z++;
         }
         
-        z = 0;
+        //z = 0;
                 
-        while ( z < 4 ) {
+        while ( z < 8 ) {
             
-            Team t = teamliste.get(0);
+            Team t = teamliste.get(z);
             gruppeB.addTeam(t);
             t.setGruppe(gruppeB);
-            teamliste.remove(0);
+            t.setSpieler(z % 2 == 0 ? spielerS : spielerM);
+            //teamliste.remove(0);
             z++;
         }
         

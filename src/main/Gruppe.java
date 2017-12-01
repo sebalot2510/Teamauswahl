@@ -32,6 +32,10 @@ public class Gruppe
         return s;
     }
     
+    public void deleteAll() {
+        teamliste.clear();
+    }
+    
     public String getName() {
         return name;
     }
