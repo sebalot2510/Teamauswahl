@@ -45,19 +45,15 @@ public class Verteilung {
             gruppeA.addTeam(t);
             t.setGruppe(gruppeA);
             t.setSpieler(z % 2 == 0 ? spielerS : spielerM);
-            //teamliste.remove(0);
             z++;
         }
         
-        //z = 0;
-                
         while ( z < 8 ) {
             
             Team t = teamliste.get(z);
             gruppeB.addTeam(t);
             t.setGruppe(gruppeB);
             t.setSpieler(z % 2 == 0 ? spielerS : spielerM);
-            //teamliste.remove(0);
             z++;
         }
         
