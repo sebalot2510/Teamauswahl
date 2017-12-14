@@ -40,6 +40,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Spielplan erstellen"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
@@ -87,7 +88,7 @@
   <SubComponents>
     <Component class="javax.swing.JToggleButton" name="jToggleButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Starten"/>
+        <Property name="text" type="java.lang.String" value="Gruppenauslosung"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>

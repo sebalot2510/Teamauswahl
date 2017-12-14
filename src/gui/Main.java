@@ -48,7 +48,7 @@ public class Main extends javax.swing.JFrame {
         setTitle("Gruppenverteilung - Fifa-Turnier");
         setPreferredSize(new java.awt.Dimension(800, 800));
 
-        jToggleButton1.setText("Starten");
+        jToggleButton1.setText("Gruppenauslosung");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -107,6 +107,7 @@ public class Main extends javax.swing.JFrame {
         jMenu2.setText("Spielplan");
 
         jMenuItem3.setText("Spielplan erstellen");
+        jMenuItem3.setEnabled(false);
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -166,8 +167,10 @@ public class Main extends javax.swing.JFrame {
         t.gruppenfestlegen();
         
         String s = t.getGruppeA() + "\n" + t.getGruppeB();
-        
         jTextPane1.setText(s);
+        
+        this.jMenuItem3.setEnabled(true);
+        
         repaint();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
@@ -188,7 +191,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        if (t.getGruppeA().getTeamliste().isEmpty() || t.getGruppeB().getTeamliste().isEmpty()) {
+            System.out.println("Geht nicht!");
+        } else {
+            t.getGruppeA().initSpielListe();
+            t.getGruppeB().initSpielListe();
+        }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed

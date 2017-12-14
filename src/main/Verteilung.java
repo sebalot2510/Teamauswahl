@@ -47,7 +47,7 @@ public class Verteilung {
             t.setSpieler(z % 2 == 0 ? spielerS : spielerM);
             z++;
         }
-        
+                
         while ( z < 8 ) {
             
             Team t = teamliste.get(z);

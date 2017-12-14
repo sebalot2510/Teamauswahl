@@ -45,6 +45,11 @@ public class Start {
         System.out.println(t.getGruppeA());
         System.out.println(t.getGruppeB());
         
+        Spiel s = new Spiel(team1, team2);
+        Spiel s2 = new Spiel (team2, team3, 0, 7);
+        s.setErgebnis(3, 0);
+        System.out.println(s);
+        System.out.println(s2);
         
     }
     

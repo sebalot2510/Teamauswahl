@@ -10,6 +10,7 @@ public class Gruppe
 {
     private List<Team> teamliste;
     String name;
+    private List<Spiel> spielListe;
     
     public Gruppe (String s) {
         
@@ -36,8 +37,24 @@ public class Gruppe
         teamliste.clear();
     }
     
+    public void initSpielListe() {
+        spielListe = new ArrayList<Spiel>();
+        
+        Spiel s = new Spiel (teamliste.get(0), teamliste.get(1));
+        spielListe.add(s);
+        Iterator<Spiel> i = spielListe.iterator();
+        while( i.hasNext()) {
+            System.out.println(i.next().toString());
+        }
+        
+    }
+    
     public String getName() {
         return name;
+    }
+    
+    public List<Team> getTeamliste() {
+        return teamliste;
     }
 
     // Tabelle aufgrund der Ergebnisse erstellen (und ausgeben?)
