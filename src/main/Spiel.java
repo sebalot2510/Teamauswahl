@@ -38,6 +38,14 @@ public class Spiel
         return ergebnis;
     }
     
+    public Team getHeim() {
+        return t1;
+    }
+    
+    public Team getGast() {
+        return t2;
+    }
+    
     @Override
     public String toString() {
         String s;

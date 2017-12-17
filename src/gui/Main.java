@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.Iterator;
+import java.util.List;
 import main.*;
 
 /**
@@ -18,6 +20,9 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         
         t = new Verteilung();
+        
+        this.jTabbedPane1.setEnabledAt(1, false);
+        this.jTabbedPane1.setEnabledAt(2, false);
     }
 
     /**
@@ -30,19 +35,38 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jPanel2 = new javax.swing.JPanel();
+        heimTextField1 = new javax.swing.JTextField();
+        gastTextField1 = new javax.swing.JTextField();
+        toreHeimTextField1 = new javax.swing.JTextField();
+        toreGastTextField1 = new javax.swing.JTextField();
+        spielEintragenButton1 = new javax.swing.JButton();
+        heimTextField2 = new javax.swing.JTextField();
+        gastTextField2 = new javax.swing.JTextField();
+        toreHeimTextField2 = new javax.swing.JTextField();
+        toreGastTextField2 = new javax.swing.JTextField();
+        spielEintragenButton2 = new javax.swing.JButton();
+        heimTextField3 = new javax.swing.JTextField();
+        gastTextField3 = new javax.swing.JTextField();
+        toreHeimTextField3 = new javax.swing.JTextField();
+        toreGastTextField3 = new javax.swing.JTextField();
+        spielEintragenButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemNeu = new javax.swing.JMenuItem();
         jMenuItemSave = new javax.swing.JMenuItem();
         jMenuItemExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        spielplanErstellenItem = new javax.swing.JMenuItem();
+        spieplanAnzeigenItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gruppenverteilung - Fifa-Turnier");
@@ -55,11 +79,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1, java.awt.BorderLayout.PAGE_END);
-
-        jTextPane1.setEditable(false);
-        jScrollPane1.setViewportView(jTextPane1);
-
-        getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -80,6 +99,191 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jButton1);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jTextPane1.setEditable(false);
+        jScrollPane1.setViewportView(jTextPane1);
+
+        jTabbedPane1.addTab("Auslosung", jScrollPane1);
+
+        jTextPane2.setEditable(false);
+        jScrollPane2.setViewportView(jTextPane2);
+
+        jTabbedPane1.addTab("Spielplan", jScrollPane2);
+
+        heimTextField1.setEditable(false);
+        heimTextField1.setEnabled(false);
+        heimTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heimTextField1ActionPerformed(evt);
+            }
+        });
+
+        gastTextField1.setEditable(false);
+        gastTextField1.setEnabled(false);
+        gastTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gastTextField1ActionPerformed(evt);
+            }
+        });
+
+        toreHeimTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toreHeimTextField1ActionPerformed(evt);
+            }
+        });
+
+        toreGastTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toreGastTextField1ActionPerformed(evt);
+            }
+        });
+
+        spielEintragenButton1.setText("Spiel eintragen");
+        spielEintragenButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spielEintragenButton1ActionPerformed(evt);
+            }
+        });
+
+        heimTextField2.setEditable(false);
+        heimTextField2.setEnabled(false);
+        heimTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heimTextField2ActionPerformed(evt);
+            }
+        });
+
+        gastTextField2.setEditable(false);
+        gastTextField2.setEnabled(false);
+        gastTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gastTextField2ActionPerformed(evt);
+            }
+        });
+
+        toreHeimTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toreHeimTextField2ActionPerformed(evt);
+            }
+        });
+
+        toreGastTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toreGastTextField2ActionPerformed(evt);
+            }
+        });
+
+        spielEintragenButton2.setText("Spiel eintragen");
+        spielEintragenButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spielEintragenButton2ActionPerformed(evt);
+            }
+        });
+
+        heimTextField3.setEditable(false);
+        heimTextField3.setEnabled(false);
+        heimTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heimTextField3ActionPerformed(evt);
+            }
+        });
+
+        gastTextField3.setEditable(false);
+        gastTextField3.setEnabled(false);
+        gastTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gastTextField3ActionPerformed(evt);
+            }
+        });
+
+        toreHeimTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toreHeimTextField3ActionPerformed(evt);
+            }
+        });
+
+        toreGastTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toreGastTextField3ActionPerformed(evt);
+            }
+        });
+
+        spielEintragenButton3.setText("Spiel eintragen");
+        spielEintragenButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spielEintragenButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(heimTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(gastTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(toreHeimTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(toreGastTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(spielEintragenButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(heimTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(gastTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(toreHeimTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(toreGastTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(spielEintragenButton2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(heimTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(gastTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(toreHeimTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(toreGastTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(spielEintragenButton3)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heimTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gastTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toreHeimTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toreGastTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spielEintragenButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heimTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gastTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toreHeimTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toreGastTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spielEintragenButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heimTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gastTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toreHeimTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toreGastTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spielEintragenButton3))
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Spiele eintragen", jPanel2);
+
+        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
         jMenu1.setText("Datei");
 
@@ -106,22 +310,22 @@ public class Main extends javax.swing.JFrame {
 
         jMenu2.setText("Spielplan");
 
-        jMenuItem3.setText("Spielplan erstellen");
-        jMenuItem3.setEnabled(false);
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        spielplanErstellenItem.setText("Spielplan erstellen");
+        spielplanErstellenItem.setEnabled(false);
+        spielplanErstellenItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                spielplanErstellenItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(spielplanErstellenItem);
 
-        jMenuItem4.setText("Spielplan anzeigen");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        spieplanAnzeigenItem.setText("Spielplan anzeigen");
+        spieplanAnzeigenItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                spieplanAnzeigenItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenu2.add(spieplanAnzeigenItem);
 
         jMenuBar1.add(jMenu2);
 
@@ -169,7 +373,7 @@ public class Main extends javax.swing.JFrame {
         String s = t.getGruppeA() + "\n" + t.getGruppeB();
         jTextPane1.setText(s);
         
-        this.jMenuItem3.setEnabled(true);
+        this.spielplanErstellenItem.setEnabled(true);
         
         repaint();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
@@ -190,18 +394,51 @@ public class Main extends javax.swing.JFrame {
         jTextField1.setText(null);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void spielplanErstellenItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spielplanErstellenItemActionPerformed
         if (t.getGruppeA().getTeamliste().isEmpty() || t.getGruppeB().getTeamliste().isEmpty()) {
             System.out.println("Geht nicht!");
         } else {
             t.getGruppeA().initSpielListe();
             t.getGruppeB().initSpielListe();
+            this.jTabbedPane1.setEnabledAt(1, true);
+            
+        String s;
+        s = t.getGruppeA().getName() + "\n" + "\n" ;
+        List<Spiel> spielListe = t.getGruppeA().getSpielliste();
+        Iterator<Spiel> i = spielListe.iterator();
+        while( i.hasNext()) {
+           s = s + (i.next().toString()) + "\n" ;
         }
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+        jTextPane2.setText(s);
+        
+        this.jTabbedPane1.setEnabledAt(2, true);
+        
+        List<Spiel> spiele = t.getGruppeA().getSpielliste();
+        heimTextField1.setText(spiele.get(0).getHeim().getName());
+        gastTextField1.setText(spiele.get(0).getGast().getName());
+        heimTextField2.setText(spiele.get(1).getHeim().getName());
+        gastTextField2.setText(spiele.get(1).getGast().getName());
+        heimTextField3.setText(spiele.get(2).getHeim().getName());
+        gastTextField3.setText(spiele.get(2).getGast().getName());
+        
+            
+        }
+        
+    }//GEN-LAST:event_spielplanErstellenItemActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private void spieplanAnzeigenItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spieplanAnzeigenItemActionPerformed
+        this.jTabbedPane1.setSelectedIndex(1);
+        /*String s;
+        s = t.getGruppeA().getName() + "\n" + "\n" ;
+        List<Spiel> spielListe = t.getGruppeA().getSpielliste();
+        Iterator<Spiel> i = spielListe.iterator();
+        while( i.hasNext()) {
+           s = s + (i.next().toString()) + "\n" ;
+        }
+        jTextPane2.setText(s);*/
+        
+            
+    }//GEN-LAST:event_spieplanAnzeigenItemActionPerformed
 
     private void jMenuItemNeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNeuActionPerformed
         // TODO add your handling code here:
@@ -210,6 +447,89 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItemExitActionPerformed
+
+    private void heimTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heimTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heimTextField1ActionPerformed
+
+    private void toreHeimTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toreHeimTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toreHeimTextField1ActionPerformed
+
+    private void toreGastTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toreGastTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toreGastTextField1ActionPerformed
+
+    private void gastTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gastTextField1ActionPerformed
+
+    private void spielEintragenButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spielEintragenButton1ActionPerformed
+        Spiel spiel1 = t.getGruppeA().getSpielliste().get(0);
+        if ( toreGastTextField1 != null && toreHeimTextField1 != null  ) {
+            spiel1.setErgebnis(Integer.parseInt(toreHeimTextField1.getText()),
+                    Integer.parseInt(toreGastTextField1.getText() ) );
+            toreHeimTextField1.setEnabled(false);
+            toreGastTextField1.setEnabled(false);
+        }
+        /*System.out.println(t.getGruppeA().getSpielliste().get(0).getErgebnis()[0]
+        + " : " + t.getGruppeA().getSpielliste().get(0).getErgebnis()[1]);*/
+    }//GEN-LAST:event_spielEintragenButton1ActionPerformed
+
+    private void heimTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heimTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heimTextField2ActionPerformed
+
+    private void gastTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gastTextField2ActionPerformed
+
+    private void toreHeimTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toreHeimTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toreHeimTextField2ActionPerformed
+
+    private void toreGastTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toreGastTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toreGastTextField2ActionPerformed
+
+    private void spielEintragenButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spielEintragenButton2ActionPerformed
+        Spiel spiel2 = t.getGruppeA().getSpielliste().get(1);
+        if ( toreGastTextField2 != null && toreHeimTextField2 != null  ) {
+            spiel2.setErgebnis(Integer.parseInt(toreHeimTextField2.getText()),
+                    Integer.parseInt(toreGastTextField2.getText() ) );
+            toreHeimTextField2.setEnabled(false);
+            toreGastTextField2.setEnabled(false);
+        }
+    }//GEN-LAST:event_spielEintragenButton2ActionPerformed
+
+    private void heimTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heimTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heimTextField3ActionPerformed
+
+    private void gastTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gastTextField3ActionPerformed
+
+    private void toreHeimTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toreHeimTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toreHeimTextField3ActionPerformed
+
+    private void toreGastTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toreGastTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toreGastTextField3ActionPerformed
+
+    private void spielEintragenButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spielEintragenButton3ActionPerformed
+        Spiel spiel3 = t.getGruppeA().getSpielliste().get(2);
+        if ( toreGastTextField3 != null && toreHeimTextField3 != null  ) {
+            spiel3.setErgebnis(Integer.parseInt(toreHeimTextField3.getText()),
+                    Integer.parseInt(toreGastTextField3.getText() ) );
+            toreHeimTextField3.setEnabled(false);
+            toreGastTextField3.setEnabled(false);
+        }
+        System.out.println(t.getGruppeA().getSpielliste().get(2).getErgebnis()[0]
+        + " : " + t.getGruppeA().getSpielliste().get(2).getErgebnis()[1]);
+        System.out.println(t.getGruppeA().getSpielliste().get(2).toString());
+    }//GEN-LAST:event_spielEintragenButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,19 +567,38 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField gastTextField1;
+    private javax.swing.JTextField gastTextField2;
+    private javax.swing.JTextField gastTextField3;
+    private javax.swing.JTextField heimTextField1;
+    private javax.swing.JTextField heimTextField2;
+    private javax.swing.JTextField heimTextField3;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItemExit;
     private javax.swing.JMenuItem jMenuItemNeu;
     private javax.swing.JMenuItem jMenuItemSave;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton spielEintragenButton1;
+    private javax.swing.JButton spielEintragenButton2;
+    private javax.swing.JButton spielEintragenButton3;
+    private javax.swing.JMenuItem spielplanErstellenItem;
+    private javax.swing.JMenuItem spieplanAnzeigenItem;
+    private javax.swing.JTextField toreGastTextField1;
+    private javax.swing.JTextField toreGastTextField2;
+    private javax.swing.JTextField toreGastTextField3;
+    private javax.swing.JTextField toreHeimTextField1;
+    private javax.swing.JTextField toreHeimTextField2;
+    private javax.swing.JTextField toreHeimTextField3;
     // End of variables declaration//GEN-END:variables
 }
