@@ -1,6 +1,8 @@
 package main;
 
 import java.util.*;
+import main.Team;
+import java.util.Comparator;
 
 /**
  *
@@ -8,9 +10,9 @@ import java.util.*;
  */
 public class Gruppe 
 {
-    private List<Team> teamliste;
+    private ArrayList<Team> teamliste;
     String name;
-    private List<Spiel> spielListe;
+    private ArrayList<Spiel> spielListe;
     
     public Gruppe (String s) {
         
@@ -28,7 +30,7 @@ public class Gruppe
         
         Iterator<Team> i = teamliste.iterator();
         while (i.hasNext() ) {
-            s = s + i.next();    
+            s = s +"\n" + i.next();    
         }
         return s;
     }
@@ -70,16 +72,28 @@ public class Gruppe
         return name;
     }
     
-    public List<Team> getTeamliste() {
+    public ArrayList<Team> getTeamliste() {
         return teamliste;
     }
     
-    public List<Spiel> getSpielliste() {
+    public ArrayList<Spiel> getSpielliste() {
         return spielListe;
     }
 
     // Tabelle aufgrund der Ergebnisse erstellen (und ausgeben?)
     public void tabelle() {
+        Iterator<Team> i = teamliste.iterator();
+        while (i.hasNext() ) {
+            System.out.println(i.next());
+        }
+        Collections.sort(teamliste);
+        //teamliste.sort();
+        System.out.println("Nach Sortierung");
+        Iterator<Team> i2 = teamliste.iterator();
+        while (i2.hasNext() ) {
+            System.out.println(i2.next());
+        }
+        
         
     }
 }

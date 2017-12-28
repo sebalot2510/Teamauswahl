@@ -32,6 +32,20 @@ public class Spiel
     public void setErgebnis(int toreHeim, int toreGast) {
        ergebnis[0] = toreHeim;
        ergebnis[1] = toreGast;
+       
+       t1.setTore(toreHeim);
+       t1.setGegentore(toreGast);
+       t2.setTore(toreGast);
+       t2.setGegentore(toreHeim);
+       
+       if ( toreHeim > toreGast ) {
+           t1.setPunkte(3);
+       } else if ( toreHeim < toreGast) {
+           t2.setPunkte(3);
+       } else {
+           t1.setPunkte(1);
+           t2.setPunkte(1);
+       }
     }
     
     public int[] getErgebnis() {
